@@ -5,7 +5,7 @@ import os
 
 
 kiwi_api_key = os.environ['kiwi_api_key']
-AffilID = os.environ['AffilID]
+AffilID = os.environ['AffilID']
 TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com"
 
 data_manager = DataManager()
