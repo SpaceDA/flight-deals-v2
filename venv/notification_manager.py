@@ -1,8 +1,6 @@
-#This class is responsible for sending notifications with the deal flight details.
+import os
 from twilio.rest import Client
 import smtplib
-import os
-
 
 
 TWILIO_SID = os.environ['TWILIO_SID']

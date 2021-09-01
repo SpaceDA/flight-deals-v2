@@ -43,7 +43,7 @@ class FlightSearch:
 
         try:
             data = r.json()['data'][0]
-        except IndexError:
+        except Exception as e:
             search['max_stopovers'] = 2
             r = requests.get(f"{TEQUILA_ENDPOINT}/v2/search", headers=headers, params=search)
             data = r.json()['data'][0]

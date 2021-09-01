@@ -1,12 +1,13 @@
 import requests
 from pprint import pprint
 import json
+import os
 
 
 SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/32a9ab328d4bc3dc48610ae717111330/flightDeals/prices"
 SHEETY_USERS_ENDPOINT = "https://api.sheety.co/32a9ab328d4bc3dc48610ae717111330/flightDeals/users"
 BITLY_ENDPOINT = "https://api-ssl.bitly.com/v4/shorten"
-BITLY_TOKEN = BITTOKEN
+BITLY_TOKEN = os.environ['BITLY_TOKEN']
 
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
@@ -19,8 +20,8 @@ class DataManager:
             headers = {"Authorization": f"Bearer {os.environ['gmail_pw']}"}
             r = requests.get(SHEETY_PRICES_ENDPOINT, headers=headers, timeout=5)
             data = r.json()
-        except:
-            print("Site not reachable", SHEETY_PRICES_ENDPOINT)
+        except Exception as e:
+            print("Site not reachable", SHEETY_PRICES_ENDPOINT, e)
             exit()
         self.destination_data = data["prices"]
         return self.destination_data

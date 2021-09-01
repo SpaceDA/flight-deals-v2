@@ -6,7 +6,7 @@ class FlightData:
         self.price = price
         self.origin_city = origin_city
         self.origin_airport = origin_airport
-        self.destination_city = destination_cityå
+        self.destination_city = destination_city
         self.destination_airport = destination_airport
         self.date_depart = date_depart
         self.date_return = date_return
