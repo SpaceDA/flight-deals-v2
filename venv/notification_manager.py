@@ -23,8 +23,8 @@ class NotificationManager:
         print(message.status)
     def send_email(self, message, to_addrs):
 
-        from_addr = "florida.man1775@gmail.com"
-        pw = "marines1775!"
+        from_addr = from
+        pw = p2
         connection = smtplib.SMTP('smtp.gmail.com')
         connection.starttls()
         connection.login(user=from_addr, password=pw)
