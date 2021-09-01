@@ -16,7 +16,8 @@ class DataManager:
 
     def get_destination_data(self):
         try:
-            r = requests.get(SHEETY_PRICES_ENDPOINT, timeout=5)
+            headers = {"Authorization": f"Bearer {os.environ['gmail_pw']}"}
+            r = requests.get(SHEETY_PRICES_ENDPOINT, headers=headers, timeout=5)
             data = r.json()
         except:
             print("Site not reachable", SHEETY_PRICES_ENDPOINT)
@@ -25,6 +26,7 @@ class DataManager:
         return self.destination_data
 
     def update_destination_codes(self):
+        headers = {"Authorization": f"Bearer {os.environ['gmail_pw']}"}
         for city in self.destination_data:
             new_data = {
                 "price":
@@ -34,12 +36,14 @@ class DataManager:
             }
             r = requests.put(
                 url=f"{SHEETY_PRICES_ENDPOINT}/{city['id']}",
+                headers=headers,
                 json=new_data
             )
 
     def get_users(self):
         try:
-            r = requests.get(SHEETY_USERS_ENDPOINT, timeout=5)
+            headers = {"Authorization": f"Bearer {os.environ['gmail_pw']}"}
+            r = requests.get(SHEETY_USERS_ENDPOINT, headers=headers, timeout=5)
             users = [user["email"] for user in r.json()["users"]]
             return users
         except:

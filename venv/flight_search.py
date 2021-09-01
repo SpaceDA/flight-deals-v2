@@ -1,11 +1,11 @@
 import requests
 from flight_data import FlightData
 from data_manager import DataManager
+import os
 
 
-
-api_key = "riwlCp4zdhYIwj4Wx9rC6NI53JmwRKBZ"
-AffilID = "floridaman1775flightsearch"
+kiwi_api_key = os.environ['kiwi_api_key']
+AffilID = os.environ['AffilID]
 TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com"
 
 data_manager = DataManager()
@@ -14,7 +14,7 @@ data_manager = DataManager()
 class FlightSearch:
     def get_destination_code(self, city_name):
         location_endpoint = f"{TEQUILA_ENDPOINT}/locations/query"
-        headers = {"apiKey": api_key, }
+        headers = {"apiKey": kiwi_api_key, }
         query = {"term": city_name, "location_types": "city"}
         try:
             r = requests.get(location_endpoint, headers=headers, params=query)
@@ -26,7 +26,7 @@ class FlightSearch:
 
 
     def check_flights(self, origin_city_code, destination_city_code, from_date, to_date):
-        headers = {"apiKey": api_key, }
+        headers = {"apiKey": kiwi_api_key, }
         search = {
             "fly_from": origin_city_code,
             "fly_to": destination_city_code,
