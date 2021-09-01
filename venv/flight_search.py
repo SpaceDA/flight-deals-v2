@@ -4,8 +4,8 @@ from data_manager import DataManager
 
 
 
-api_key = "riwlCp4zdhYIwj4Wx9rC6NI53JmwRKBZ"
-AffilID = "floridaman1775flightsearch"
+api_key = KEY
+AffilID = ID
 TEQUILA_ENDPOINT = "https://tequila-api.kiwi.com"
 
 data_manager = DataManager()
