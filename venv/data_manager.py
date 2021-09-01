@@ -6,7 +6,7 @@ import json
 SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/32a9ab328d4bc3dc48610ae717111330/flightDeals/prices"
 SHEETY_USERS_ENDPOINT = "https://api.sheety.co/32a9ab328d4bc3dc48610ae717111330/flightDeals/users"
 BITLY_ENDPOINT = "https://api-ssl.bitly.com/v4/shorten"
-BITLY_TOKEN = "1ac5ccc98baf086342948642d44bb3b779fbc6c0"
+BITLY_TOKEN = BITTOKEN
 
 class DataManager:
     #This class is responsible for talking to the Google Sheet.
